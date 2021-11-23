@@ -1,0 +1,333 @@
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+/* this is a website where i can get all the resets i want to do befor making the website
+https://piccalil.li/blog/a-modern-css-reset/
+*/
+
+/*reset Box sizing */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+/*reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+/* set up the body */
+body {
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* make images easier to work with */
+img,
+picutre {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {  
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+/* ------------------- */
+/* Reset   ENDS HERE  
+we can include many other resets from the website provided above
+or can add resets as needed */
+/* ------------------- */
+/* CUSTOM PROPERTIES   */
+/* ------------------- */
+/*colors*/
+:root{
+    /* there are hsl values but we are not writing it as hsl(230 35% 7% )
+    because we might need to modify it when we are using it */
+    --clr-dark: 14 42% 29%;
+    --clr-light: 16 50% 46%;
+    --clr-white: 38 100% 89%;
+    	/*we can also write it as clamp fuction*/
+	--fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+    --fs-900: 9.375rem;
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+
+    /* FONT-FAMILIES */
+    --ff-serif: "Bellefair", serif;
+    --ff-sans-cond: "Barlow Condensed", sans-serif;
+    --ff-sans-normal: "Barlow", sans-serif;
+}
+/* ------------------- */
+ /* ------------------- */
+/* UTILITY CLASSES     */
+/* ------------------- */
+
+/*general*/
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+/* this will select every single child in the div/section that we apply it in....
+but the first child ... it helps to keep the margin consistent */
+.flow > *:not(:first-child) {
+    margin-top: 1rem;
+}
+.container {
+    padding: 2em;
+    margin-inline: auto;
+    max-width: 80rem;
+}
+
+/* this is for disable people so that they can use this website as well and it will help them to 
+read throught the content much easily */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px; 
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+
+/* this is how we can use the custom properties */
+.bg-dark { background-color: hsl( var(--clr-dark) );}
+.bg-light { background-color: hsl( var(--clr-light) );}
+.bg-white { background-color: hsl( var(--clr-white) );}
+
+.text-dark { color: hsl( var(--clr-dark) );}
+.text-light { color: hsl( var(--clr-light) );}
+.text-white { color: hsl( var(--clr-white) );}
+    /*CUSTOM PROPERTIES OR VARIABLES*/
+    /* FONTS-SIZES */
+    /* bolder the number of font weight ,the bigger the font size */
+
+/* typography */
+
+.ff-serif { font-family: var(--ff-serif); } 
+.ff-sans-cond { font-family: var(--ff-sans-cond); } 
+.ff-sans-normal { font-family: var(--ff-sans-normal); } 
+
+.letter-spacing-1 { letter-spacing: 4.75px; } 
+.letter-spacing-2 { letter-spacing: 2.7px; } 
+.letter-spacing-3 { letter-spacing: 2.35px; } 
+
+.uppercase { text-transform: uppercase; }
+
+.fs-900 { font-size: var(--fs-900); }
+.fs-800 { font-size: var(--fs-800); }
+.fs-700 { font-size: var(--fs-700); }
+.fs-600 { font-size: var(--fs-600); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-300 { font-size: var(--fs-300); }
+.fs-200 { font-size: var(--fs-200); }
+
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+    line-height: 1.1;
+}
+/* 
+NAV BAR STYLING
+*/
+
+
+.nav-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: var(--background);
+    position: fixed;
+    width: 100%;
+}
+.nav-logo{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 1.50rem ;
+}
+.nav-list{
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    align-items: flex-end;
+    list-style: none;
+}
+.nav-link{
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: 540;
+    font-size: 1rem;
+}
+.nav-link:hover{
+    text-decoration: underline;
+    font-size: 1.2rem;
+}
+.burger{
+    display: none;
+    cursor:  pointer;
+}
+.burger div{
+    width: 25px;
+    height:2.5px;
+    margin: 5px; 
+    transition: all .3s ease;
+}
+@media screen and (max-width:1000px){
+    .nav-list{
+        width: 50%;
+    }
+}
+@media screen and (max-width:768px) {
+    body{
+        overflow-x: hidden;
+    }
+    .nav-container{
+        background-color: white;
+    }
+    .nav-list{
+        position: absolute;
+        top: 5vh;
+        right: 0;
+        height: 92vh;
+        background-color: white;
+        text-shadow: 2px 2px var(--clr-dark);
+        opacity: .8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+    }
+    .nav-listitem{
+        opacity: 0;
+    }
+    .burger{
+        display: block;
+    }
+}
+.nav-active{
+    transform: translateX(0);
+}
+@keyframes linksanimation{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+    opacity: 0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+/* *************
+NAV BAR ENDS HERE
+*********/
+/* SECTION */
+section p{
+    padding: 1em 2em ;
+    text-align: center;
+}
+section h2{
+    padding: 1em 0 0;
+    text-align: center;
+}
+.footer-button:hover,
+.footer-button:focus{
+    color: var(--clr-light);
+    text-decoration: underline;
+}
+/* RESPONSIVE DESIGN */
+@media screen and (min-width:768px){
+    .nav-container{
+        background-color: white;
+    }
+    main{
+        background-image:    url(/images/main.jpg);
+        background-size:     cover;                      /* <------ */
+        background-repeat:   no-repeat;
+        background-position: center center; 
+    }
+    .hide{
+        display: hidden;
+    }
+    .section{
+        display: flex;
+    }
+    .section-image{
+        width: 50%;
+    }
+    .gallary{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .footer{
+        all: unset;
+        background-color: hsl( var(--clr-white) );
+        color: hsl( var(--clr-dark) );
+        display: flex;
+        padding: 2em;
+        margin-inline: 0;
+        justify-content: space-between;
+        margin: 0;
+    }
+}
