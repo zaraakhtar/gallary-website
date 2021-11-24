@@ -198,10 +198,11 @@ NAV BAR STYLING
 }
 .nav-list{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 30%;
     align-items: flex-end;
     list-style: none;
+    padding-left: 16px;
 }
 .nav-link{
     text-decoration: none;
@@ -242,10 +243,10 @@ NAV BAR STYLING
         height: 92vh;
         background-color: white;
         text-shadow: 2px 2px var(--clr-dark);
-        opacity: .8;
+        opacity: 1;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         width: 100%;
         transform: translateX(100%);
         transition: transform 0.5s ease-in-out;
@@ -284,7 +285,7 @@ NAV BAR ENDS HERE
 *********/
 /* SECTION */
 section p{
-    padding: 1em 2em ;
+    padding: 1em 1em ;
     text-align: center;
 }
 section h2{
